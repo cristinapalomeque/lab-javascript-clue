@@ -106,12 +106,27 @@ function selectRandom(carddeck) {
   const randomCard = carddeck[randomCardIdx];
   return randomCard;
 }
+
 const suspect = selectRandom(suspectsArray);
 const room = selectRandom(roomsArray);
 const weapon = selectRandom(weaponsArray);
-console.log(suspect);
-function pickMystery() {}
+
+function pickMystery() {
+  const suspect = selectRandom(suspectsArray);
+  const room = selectRandom(roomsArray);
+  const weapon = selectRandom(weaponsArray);
+  return {
+    suspect: suspect,
+    room: room,
+    weapon: weapon,
+  };
+}
+//console.log(pickMystery());
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery(envelope) {
+  return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`;
+}
+
+let envelope = console.log(revealMystery(pickMystery()));
